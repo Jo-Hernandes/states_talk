@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CounterScreenNotifier extends StatelessWidget {
-  CounterScreenNotifier({Key key, this.title}) : super(key: key);
+  CounterScreenNotifier({Key key, this.title = 'COUNTER SCREEN NOTIFIER'})
+      : super(key: key);
 
   final String title;
 

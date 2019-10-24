@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CounterScreen extends StatefulWidget {
-  CounterScreen({Key key, this.title}) : super(key: key);
+  CounterScreen({Key key, this.title = 'COUNTER SCREEN DEFAULT'})
+      : super(key: key);
 
   final String title;
 

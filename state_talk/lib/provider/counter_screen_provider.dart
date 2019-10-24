@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CounterScreenProvider extends StatefulWidget {
-  CounterScreenProvider({Key key, this.title}) : super(key: key);
+  CounterScreenProvider({Key key, this.title = 'COUNTER SCREEN PROVIDER'})
+      : super(key: key);
 
   final String title;
 

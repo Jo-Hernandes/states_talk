@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CounterScreenInherited extends StatelessWidget {
-  CounterScreenInherited({Key key, this.title}) : super(key: key);
+  CounterScreenInherited({Key key, this.title = 'COUNTER SCREEN COM INHERITED'})
+      : super(key: key);
 
   final String title;
 
