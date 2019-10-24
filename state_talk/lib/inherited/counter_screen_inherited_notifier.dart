@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:state_talk/inherited/inherited_notifier_counter.dart';
 
 class CounterScreenInherited extends StatelessWidget {
   CounterScreenInherited({Key key, this.title = 'COUNTER SCREEN COM INHERITED'})

@@ -1,13 +1,15 @@
 import 'package:flutter/widgets.dart';
 
 class InheritedCounter extends InheritedWidget {
-  final counterValue = ValueNotifier<int>(0);
+  final counterValue;
   final inheritedTitle = 'HEY I GOT A NEW TITLE';
 
-  InheritedCounter({Widget child}) : super(child: child ?? Container());
+  InheritedCounter(this.counterValue, {Widget child})
+      : super(child: child ?? Container());
 
   @override
-  bool updateShouldNotify(InheritedWidget oldWidget) => true;
+  bool updateShouldNotify(InheritedCounter oldWidget) =>
+      oldWidget.counterValue != counterValue;
 
   static InheritedCounter of(BuildContext context) =>
       context.inheritFromWidgetOfExactType(InheritedCounter);

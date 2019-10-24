@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 class InheritedNotifierCounter<int> extends InheritedNotifier {
   InheritedNotifierCounter({
     Key key,
-    ValueListenable notifier,
+    ChangeNotifier notifier,
     Widget child,
   }) : super(key: key, notifier: notifier, child: child);
 
