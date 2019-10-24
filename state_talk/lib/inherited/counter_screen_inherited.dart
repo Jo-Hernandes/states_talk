@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:state_talk/inherited/inherited_counter_body.dart';
 
 class CounterScreenInherited extends StatelessWidget {
   CounterScreenInherited({Key key, this.title = 'COUNTER SCREEN COM INHERITED'})
@@ -12,20 +13,7 @@ class CounterScreenInherited extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '0',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
-        ),
-      ),
+      body: CounterBody(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         tooltip: 'Increment',
