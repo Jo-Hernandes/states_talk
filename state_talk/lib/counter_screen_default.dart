@@ -15,7 +15,18 @@ class _CounterScreenState extends State<CounterScreen> {
 
   void _incrementCounter() {
     setState(() {
-      _counter++;
+      _counter += 2;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    Future.delayed(Duration(seconds: 1), () {
+      setState(() {
+        _counter += 2;
+      });
     });
   }
 

@@ -1,29 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:state_talk/provider/counter_model.dart';
 
-class CounterScreenProvider extends StatefulWidget {
+class CounterScreenProvider extends StatelessWidget {
   CounterScreenProvider({Key key, this.title = 'COUNTER SCREEN PROVIDER'})
       : super(key: key);
 
   final String title;
 
   @override
-  _CounterScreenProviderState createState() => _CounterScreenProviderState();
-}
-
-class _CounterScreenProviderState extends State<CounterScreenProvider> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(title),
       ),
       body: Center(
         child: Column(
@@ -32,17 +21,21 @@ class _CounterScreenProviderState extends State<CounterScreenProvider> {
             Text(
               'You have pushed the button this many times:',
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
+            Consumer<CounterModel>(
+              builder: (_, model, __) => Text(
+                '${model.counterValue}',
+                style: Theme.of(context).textTheme.display1,
+              ),
+            )
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
+      floatingActionButton: Consumer<CounterModel>(
+        builder: (_, model, __) => FloatingActionButton(
+          onPressed: model.addToCounter,
+          tooltip: 'Increment',
+          child: Icon(Icons.add),
+        ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }

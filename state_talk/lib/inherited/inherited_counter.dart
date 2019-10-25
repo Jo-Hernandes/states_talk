@@ -4,7 +4,7 @@ class InheritedCounter extends InheritedWidget {
   final counterValue;
   final inheritedTitle = 'HEY I GOT A NEW TITLE';
 
-  InheritedCounter(this.counterValue, {Widget child})
+  InheritedCounter({this.counterValue, Widget child})
       : super(child: child ?? Container());
 
   @override

@@ -5,6 +5,7 @@ class CounterScreenNotifier extends StatelessWidget {
       : super(key: key);
 
   final String title;
+  final count = ValueNotifier(0);
 
   @override
   Widget build(BuildContext context) {
@@ -19,17 +20,22 @@ class CounterScreenNotifier extends StatelessWidget {
             Text(
               'You have pushed the button this many times:',
             ),
-            Text(
-              '0',
-              style: Theme.of(context).textTheme.display1,
-            ),
+            ValueListenableBuilder<int>(
+              valueListenable: count,
+              builder: (context, value, child) => Text(
+                '$value',
+                style: Theme.of(context).textTheme.display1,
+              ),
+            )
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Increment',
         child: Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          count.value += 1;
+        },
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }

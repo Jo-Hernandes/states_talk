@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:state_talk/inherited/inherited_counter.dart';
 
 class CounterBody extends StatelessWidget {
   @override
@@ -9,12 +10,16 @@ class CounterBody extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            'You have pushed the button this many times:',
+            '${InheritedCounter.of(context).inheritedTitle}',
           ),
-          Text(
-            '0',
-            style: Theme.of(context).textTheme.display1,
-          ),
+          ValueListenableBuilder(
+              valueListenable: InheritedCounter.of(context).counterValue,
+              builder: (context, value, _) {
+                return Text(
+                  '$value',
+                  style: Theme.of(context).textTheme.display1,
+                );
+              }),
         ],
       ),
     );
